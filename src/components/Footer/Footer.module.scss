@@ -10,6 +10,20 @@ footer {
     background: #f6f6ff;
     display: flex;
     align-items: center;
+
+    .carousel {
+      width: 100%;
+    }
+
+    img {
+      filter: grayscale(100%);
+      transition: all 0.1s ease-in-out;
+      cursor: pointer;
+
+      &:hover {
+        filter: unset;
+      }
+    }
   }
 
   .footerContent {
@@ -57,12 +71,13 @@ footer {
         display: flex;
         align-items: flex-start;
         flex-direction: column;
-        gap: 10px;
+        gap: 20px;
 
         p {
           color: #fbfbff;
           font-weight: 600;
           font-size: 20px;
+          margin: 0;
         }
 
         .social {

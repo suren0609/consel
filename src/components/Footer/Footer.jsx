@@ -33,7 +33,18 @@ const Footer = () => {
   return (
     <footer>
       <div className={styles.footerSlider}>
-        <Carousel responsive={responsive}>
+        <Carousel
+          className={styles.carousel}
+          responsive={responsive}
+          autoPlay={true}
+          swipeable={true}
+          draggable={true}
+          showDots={false}
+          infinite={true}
+          autoPlaySpeed={3000}
+          partialVisible={false}
+          dotListClass="custom-dot-list-style"
+        >
           <img src={img1} alt="" />
           <img src={img2} alt="" />
           <img src={img3} alt="" />
@@ -41,7 +52,6 @@ const Footer = () => {
           <img src={img5} alt="" />
           <img src={img6} alt="" />
         </Carousel>
-        ;
       </div>
       <div className={styles.footerContent}>
         <div className={styles.content}>

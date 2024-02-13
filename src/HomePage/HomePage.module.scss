@@ -1,0 +1,133 @@
+.HomePage {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  .posterHead {
+    width: 100%;
+    height: 700px;
+    background-image: url("../assets/Rectangle\ 456.png"),
+      url("../assets/header_keyvisual_app\ 1.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 50px;
+
+    .headContent {
+      max-width: 864px;
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column;
+
+      h1 {
+        font-size: 56px;
+        color: #fbfbff;
+      }
+      p {
+        font-size: 20px;
+        color: #eeeeff;
+      }
+      .knowMore {
+        width: 271px;
+        height: 62px;
+        border: none;
+        outline: none;
+        background: #3e4095;
+        color: #fbfbff;
+        font-size: 20px;
+        font-weight: 600;
+        border-radius: 12px;
+        margin-top: 30px;
+        cursor: pointer;
+        transition: all 0.1s ease-in-out;
+
+        &:hover {
+          opacity: 0.9;
+        }
+      }
+
+      .partners {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        margin-top: 50px;
+      }
+    }
+  }
+  .newCollection {
+    width: 100%;
+    padding: 50px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+
+    h3 {
+      font-size: 26px;
+      color: #27272d;
+    }
+
+    .productSections {
+      width: 100%;
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column;
+
+      .sectionsTop {
+        display: flex;
+        align-items: flex-start;
+        width: 100%;
+        flex-direction: column;
+
+        .categories {
+          list-style: none;
+          display: flex;
+          align-items: center;
+          gap: 20px;
+          padding: 0;
+          margin: 5px 0;
+
+          li {
+            font-size: 16px;
+            color: #50525f;
+            position: relative;
+            cursor: pointer;
+
+            &:first-child {
+              color: #3e4095;
+            }
+
+            &:first-child::after {
+              content: "";
+              height: 4px;
+              width: 100%;
+              background: #3e4095;
+              position: absolute;
+              left: 0;
+              bottom: -14px;
+            }
+          }
+        }
+        hr {
+          width: 100%;
+          color: #50525f;
+        }
+      }
+
+      .slider {
+        width: 100%;
+        height: 290px;
+        display: flex;
+        align-items: center;
+
+        .carousel {
+          width: 100%;
+        }
+      }
+    }
+  }
+  
+}
