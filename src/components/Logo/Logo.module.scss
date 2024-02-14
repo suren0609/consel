@@ -1,0 +1,17 @@
+a {
+  .mobLogo {
+    display: none;
+  }
+
+  .deskLogo {
+    @media (max-width: 857px) {
+      display: none;
+    }
+  }
+
+  .mobLogo {
+    @media (max-width: 857px) {
+      display: block;
+    }
+  }
+}

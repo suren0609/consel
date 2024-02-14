@@ -13,6 +13,14 @@ header {
     align-items: center;
     justify-content: space-between;
 
+    @media (max-width: 1133px) {
+      padding: 10px 30px;
+    }
+
+    @media (max-width: 857px) {
+      display: none;
+    }
+
     .contactNSocial {
       display: flex;
       align-items: center;
@@ -26,6 +34,10 @@ header {
           margin-left: 10px;
           font-size: 18px;
           color: #50525f;
+
+          @media (max-width: 1400px) {
+            font-size: 14px;
+          }
         }
       }
 
@@ -33,16 +45,28 @@ header {
         display: flex;
         align-items: center;
 
+        @media (max-width: 1032px) {
+          display: none;
+        }
+
         p {
           font-size: 16px;
           font-weight: 600;
           color: #50525f;
+
+          @media (max-width: 1400px) {
+            font-size: 14px;
+          }
         }
 
         .social {
           display: flex;
           align-items: center;
           margin-left: 30px;
+
+          @media (max-width: 1187px) {
+            margin-left: 15px;
+          }
 
           .socialCard {
             background: #fbfbff;
@@ -70,13 +94,25 @@ header {
         justify-content: flex-end;
         list-style: none;
 
+        @media (max-width: 1187px) {
+          padding-left: 0;
+        }
+
         li {
           margin-left: 30px;
+
+          @media (max-width: 1280px) {
+            margin-left: 12px;
+          }
 
           a {
             text-decoration: none;
             color: #50525f;
             transition: all 0.1s ease-in;
+
+            @media (max-width: 1400px) {
+              font-size: 14px;
+            }
 
             &:hover {
               color: #161618;
@@ -95,20 +131,72 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
+
+    @media (max-width: 1133px) {
+      padding: 10px 30px;
+    }
+
+    @media (max-width: 857px) {
+      height: 80px;
+    }
+
+    .headerLeft {
+      display: flex;
+      align-items: center;
+
+      .burger {
+        width: 42px;
+        height: 42px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        display: none;
+        cursor: pointer;
+
+        @media (max-width: 857px) {
+          display: flex;
+        }
+      }
+
+      .menuActive {
+        width: 42px;
+        height: 42px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #ffffff;
+        border: 1px solid #eeeeff;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    }
 
     .navNSearch {
       display: flex;
       align-items: center;
 
       nav {
+        @media (max-width: 857px) {
+          display: none;
+        }
+
         ul {
           display: flex;
           align-items: center;
           list-style: none;
           margin-right: 20px;
 
+          @media (max-width: 1139px) {
+            padding-left: 0;
+          }
+
           li {
             padding: 10px 15px;
+
+            @media (max-width: 1280px) {
+              padding: 10px;
+            }
 
             a {
               text-decoration: none;
@@ -118,6 +206,10 @@ header {
               &:hover {
                 color: #fff;
               }
+
+              @media (max-width: 1400px) {
+                font-size: 14px;
+              }
             }
           }
         }
@@ -126,17 +218,107 @@ header {
       form {
         position: relative;
 
+        @media (max-width: 857px) {
+          display: none;
+        }
+
         input {
           width: 416px;
           height: 48px;
           padding: 10px 20px;
           border-radius: 8px;
           border: none;
+
+          @media (max-width: 1319px) {
+            width: 280px;
+            height: 32px;
+          }
+
+          @media (max-width: 1000px) {
+            width: 180px;
+          }
+
+          @media (max-width: 902px) {
+            width: 140px;
+          }
         }
         svg {
           position: absolute;
           right: 5px;
           top: 7px;
+
+          @media (max-width: 1319px) {
+            transform: scale(0.8);
+            top: 1px;
+          }
+        }
+      }
+
+      .searchMob {
+        display: none;
+
+        @media (max-width: 857px) {
+          display: block;
+        }
+      }
+
+      .searchMenuActive {
+        width: 42px;
+        height: 42px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #ffffff;
+        border: 1px solid #eeeeff;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .langMenuActive {
+        width: 42px;
+        height: 42px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #ffffff;
+        border: 1px solid #eeeeff;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-left: 20px;
+
+        .langModal {
+          width: 142px;
+          height: 148px;
+          border-radius: 10px;
+          box-shadow: 0 5px 10px #3a3a3a27;
+          background: white;
+          padding: 10px 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          position: absolute;
+          right: 0px;
+          top: 50px;
+          z-index: 2;
+
+          .langOption {
+            width: 100%;
+            padding: 10px 20px;
+            font-size: 18px;
+            color: #50525f;
+            transition: all 0.1s ease-in;
+            cursor: pointer;
+
+            &:hover {
+              background: #f0f0ff;
+            }
+
+            &:first-child {
+              color: #3e4095;
+              font-weight: 600;
+            }
+          }
         }
       }
 

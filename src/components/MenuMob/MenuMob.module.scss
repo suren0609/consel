@@ -1,0 +1,90 @@
+.MenuMob {
+  width: 100%;
+  height: calc(100vh - 80px);
+  position: absolute;
+  top: 80px;
+  left: 0;
+  background: white;
+  z-index: 1;
+  padding: 20px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-direction: column;
+  overflow-x: hidden;
+
+  ul {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 0;
+    list-style: none;
+    width: 100%;
+
+    .product {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+
+      .arrowDown {
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 3px;
+        background: #ffffff;
+        box-shadow: 0 5px 10px #eeeeff;
+        cursor: pointer;
+      }
+    }
+
+    .preMenu {
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column;
+      padding: 0;
+      list-style: none;
+      width: 100%;
+
+      li {
+        padding: 10px 0;
+
+        a {
+          text-decoration: none;
+          color: #50525f;
+          font-size: 18px;
+        }
+      }
+    }
+
+    li {
+      padding: 10px 0;
+
+      a {
+        text-decoration: none;
+        color: #27272d;
+        font-size: 18px;
+      }
+    }
+  }
+
+  .sicial {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .soc {
+      width: 36px;
+      height: 36px;
+      background: #fbfbff;
+      border: 1px solid #eeeeff;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+  }
+}

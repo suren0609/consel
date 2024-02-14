@@ -5,6 +5,10 @@
   align-items: center;
   flex-direction: column;
 
+  @media (max-width: 500px) {
+    padding: 20px;
+  }
+
   .titleNWatchMore {
     width: 100%;
     display: flex;
@@ -27,6 +31,10 @@
       font-size: 20px;
       color: #3e4095;
       cursor: pointer;
+
+      @media (max-width: 624px) {
+        display: none;
+      }
     }
   }
 
@@ -40,11 +48,29 @@
       width: 100%;
     }
   }
+
+  .watchMoreMob {
+    width: 100%;
+    height: 56px;
+    border: none;
+    outline: none;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 5px 10px rgba(58, 58, 58, 0.137);
+    font-size: 20px;
+    color: #3e4095;
+    cursor: pointer;
+    display: none;
+
+    @media (max-width: 624px) {
+      display: block;
+    }
+  }
 }
 
 .serviceCard {
-  width: 500px;
-  //   height: 220px;
+  // width: 500px;
+  min-height: 298px;
   background-color: white;
   border-radius: 15px;
   box-shadow: 0 5px 10px rgba(73, 72, 72, 0.082);
@@ -62,16 +88,31 @@
     width: 60px;
     height: 60px;
     border-radius: 50%;
+
+    @media (max-width: 1280px) {
+      width: 48px;
+      height: 48px;
+    }
   }
 
   h4 {
     font-size: 20px;
     color: #27272d;
+
+    @media (max-width: 1280px) {
+      font-size: 16px;
+      margin: 10px 0;
+    }
   }
 
   p {
     font-size: 18px;
     color: #6b6b6b;
+
+    @media (max-width: 1280px) {
+      font-size: 16px;
+      margin: 10px 0;
+    }
   }
 
   a {
@@ -80,9 +121,18 @@
     gap: 10px;
     text-decoration: none;
 
+    @media (max-width: 1280px) {
+      font-size: 16px;
+      margin: 10px 0;
+    }
+
     span {
       font-size: 18px;
       color: #3e4095;
+
+      @media (max-width: 1280px) {
+        font-size: 16px;
+      }
     }
   }
 }

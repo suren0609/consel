@@ -1,10 +1,18 @@
 .ProductCard {
   width: 356px;
-  height: 230px;
+  // height: 230px;
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: space-between;
+
+  @media (max-width: 1400px) {
+    width: 250px;
+  }
+
+  @media (max-width: 1133px) {
+    width: 200px;
+  }
 
   img {
     width: 100%;
@@ -22,6 +30,10 @@
       font-size: 20px;
       font-weight: 600;
       margin: 0;
+
+      @media (max-width: 1400px) {
+        font-size: 16px;
+      }
     }
 
     .price {
@@ -29,6 +41,10 @@
       font-weight: 600;
       color: #3e4095;
       margin: 0;
+
+      @media (max-width: 1400px) {
+        font-size: 16px;
+      }
     }
   }
 }
