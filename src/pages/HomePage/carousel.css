@@ -1,0 +1,15 @@
+button:last-child {
+  right: calc(4% - 10px);
+}
+
+.react-multi-carousel-list {
+  position: unset;
+}
+
+.react-multiple-carousel__arrow--left {
+  left: calc(4% - 30px);
+}
+
+.react-multiple-carousel__arrow--right {
+  right: calc(4% - 30px);
+}

@@ -1,4 +1,4 @@
-import HomePage from "../../HomePage";
+import HomePage from "../../pages/HomePage";
 import Layout from "../Layout";
 import styles from "./App.module.scss";
 

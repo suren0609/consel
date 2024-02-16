@@ -137,7 +137,7 @@ const Header = () => {
       </div>
       <div
         className={styles.headerBottom}
-        style={{ background: `${isMenuActive ? "#EEEEFF" : "#3e4095"}` }}
+        style={{ background: `${isMenuActive ? "#FFFFFF" : "#3e4095"}` }}
         onBlur={productPopupClose}
         tabIndex={0}
       >
@@ -181,7 +181,7 @@ const Header = () => {
           <nav>
             <ul>
               <li onClick={productPopupHandler}>
-                Ապրանք{" "}
+                <span>Ապրանք</span>
                 {isProductPopupActive ? (
                   <i class="fa-solid fa-chevron-up"></i>
                 ) : (

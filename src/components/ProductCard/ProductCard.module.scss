@@ -1,23 +1,31 @@
 .ProductCard {
   width: 356px;
-  // height: 230px;
+  height: 300px;
   display: flex;
   align-items: center;
   flex-direction: column;
-  justify-content: space-between;
+  // justify-content: space-between;
   cursor: pointer;
 
   @media (max-width: 1400px) {
     width: 250px;
+    
   }
 
   @media (max-width: 1133px) {
     width: 200px;
   }
 
+  @media (max-width: 800px) {
+    height: unset;
+  }
+
+
+
   img {
     width: 100%;
     border-radius: 6px;
+    padding-bottom: 15px;
   }
 
   .modelNPrice {
