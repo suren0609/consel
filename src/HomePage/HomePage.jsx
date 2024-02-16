@@ -66,8 +66,14 @@ const HomePage = () => {
             </ul>
             <hr />
           </div>
-          <div className={styles.categoriesSelect}>
-            <p>Օդակարգավորում</p>
+          <div class={styles.customSelect}>
+            <select>
+              <option value="">Օդակարգավորում</option>
+              <option value="">Ջեռուցում և ջրամատակարարում</option>
+              <option value="">Լուսավորություն</option>
+              <option value="">Էլեկտրամոնտաժային սարքեր</option>
+              <option value="">Անվտանգություն</option>
+            </select>
             <div className={styles.arrowDown}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -87,6 +93,27 @@ const HomePage = () => {
               </svg>
             </div>
           </div>
+          {/* <div className={styles.categoriesSelect}>
+            <p>Օդակարգավորում</p>
+            <div className={styles.arrowDown}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="8"
+                viewBox="0 0 14 8"
+                fill="none"
+              >
+                <path
+                  d="M13.0002 1L7.00024 7L1.00024 1"
+                  stroke="#3E4095"
+                  stroke-width="2"
+                  stroke-miterlimit="10"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+          </div> */}
           <div className={styles.slider}>
             <Carousel
               className={styles.carousel}

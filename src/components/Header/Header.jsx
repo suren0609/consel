@@ -2,10 +2,20 @@ import React, { useState } from "react";
 import styles from "./Header.module.scss";
 import Logo from "../Logo";
 import MenuMob from "../MenuMob";
+import ProductPopup from "../ProductPopup";
 
 const Header = () => {
   const [isLangPopupActive, setLangPopupActive] = useState(false);
   const [isMenuActive, setMenuActive] = useState(false);
+  const [isProductPopupActive, setProductPopupActive] = useState(false);
+
+  const productPopupHandler = () => {
+    setProductPopupActive((prev) => !prev);
+  };
+
+  const productPopupClose = () => {
+    setProductPopupActive(false);
+  };
 
   const langPopupHandler = () => {
     setLangPopupActive((prev) => !prev);
@@ -128,6 +138,8 @@ const Header = () => {
       <div
         className={styles.headerBottom}
         style={{ background: `${isMenuActive ? "#EEEEFF" : "#3e4095"}` }}
+        onBlur={productPopupClose}
+        tabIndex={0}
       >
         <div className={styles.headerLeft}>
           {isMenuActive ? (
@@ -168,10 +180,13 @@ const Header = () => {
         <div className={styles.navNSearch}>
           <nav>
             <ul>
-              <li>
-                <a href="#">
-                  Ապրանք <i class="fa-solid fa-chevron-down"></i>
-                </a>
+              <li onClick={productPopupHandler}>
+                Ապրանք{" "}
+                {isProductPopupActive ? (
+                  <i class="fa-solid fa-chevron-up"></i>
+                ) : (
+                  <i class="fa-solid fa-chevron-down"></i>
+                )}
               </li>
               <li>
                 <a href="#">Ծառայություն</a>
@@ -322,6 +337,7 @@ const Header = () => {
           )}
         </div>
         {isMenuActive && <MenuMob />}
+        {isProductPopupActive && <ProductPopup />}
       </div>
     </header>
   );
