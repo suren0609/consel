@@ -35,26 +35,64 @@ const responsive = {
 
 const HomePage = () => {
   const [circlePopupPos, setCirclePopupPos] = useState({
-    curTop: 50,
-    curLeft: 0,
+    currentTop: 0,
+    currentLeft: 0,
   });
   const [catInd, setCatInd] = useState(0);
   const [isImagePopupActive, setImagePopupActive] = useState(false);
 
-  const circleRef = useRef(null);
-
-  const getPos = (curRef) => {
-    const { top, left } = curRef.current?.getBoundingClientRect();
-
-    return {
-      curTop: top + 50,
-      curLeft: left - 30,
-    };
-  };
+  const circleRef1 = useRef(null);
+  const circleRef2 = useRef(null);
+  const circleRef3 = useRef(null);
+  const circleRef4 = useRef(null);
+  const popupRef = useRef(null);
 
   useEffect(() => {
-    setCirclePopupPos(getPos(circleRef));
-  }, []);
+    popupRef.current.focus();
+  }, [isImagePopupActive]);
+
+  const popupClose = (e) => {
+    console.log(e.relatedTarget);
+    if (e.relatedTarget?.dataset?.name === "circle") {
+      console.log(e.relatedTarget?.dataset?.name);
+      return;
+    }
+    setImagePopupActive(false);
+  };
+
+  const handleCircleClick = (circleRef) => {
+    const { left, top } = circleRef.current?.getBoundingClientRect();
+
+    const circleStyles = window.getComputedStyle(circleRef.current);
+    const popupStyles = window.getComputedStyle(popupRef.current);
+
+    let width = parseInt(popupStyles.width);
+    let height = parseInt(popupStyles.height);
+    let styleTop = parseInt(circleStyles.top);
+
+    if (left + width > window.innerWidth) {
+      if (top + height > window.innerHeight) {
+        setCirclePopupPos({
+          currentTop: styleTop - height,
+          currentLeft: left - (left + width - window.innerWidth),
+        });
+      } else {
+        setCirclePopupPos({
+          currentTop: styleTop + 43,
+          currentLeft: left - (left + width - window.innerWidth),
+        });
+      }
+    } else {
+      if (top + height > window.innerHeight) {
+        setCirclePopupPos({ currentTop: styleTop - height, currentLeft: left });
+        console.log("worked");
+      } else {
+        setCirclePopupPos({ currentTop: styleTop + 43, currentLeft: left });
+      }
+    }
+
+    setImagePopupActive(!isImagePopupActive);
+  };
 
   const categories = [
     "Օդակարգավորում",
@@ -63,35 +101,6 @@ const HomePage = () => {
     "Էլեկտրամոնտաժային սարքեր",
     "Անվտանգություն",
   ];
-
-  // useEffect(() => {
-  //   const { top, left } = circleRef.current?.getBoundingClientRect();
-
-  //   console.log(top, left);
-
-  //   setCirclePopupPos({ curTop: top + 60, curLeft: left });
-
-  //   if (top + 300 > window.innerHeight) {
-  //     if (left + 416 > window.innerWidth) {
-  //       setCirclePopupPos({
-  //         curTop: top - 300,
-  //         curLeft: left - 416,
-  //       });
-  //     }
-
-  //     setCirclePopupPos({
-  //       curTop: top - 300,
-  //       curLeft: left,
-  //     });
-  //   } else {
-  //     if (left + 416 > window.innerWidth) {
-  //       setCirclePopupPos({
-  //         curLeft: left - 416,
-  //         curTop: top,
-  //       });
-  //     }
-  //   }
-  // }, []);
 
   return (
     <div className={styles.HomePage}>
@@ -158,27 +167,6 @@ const HomePage = () => {
               </svg>
             </div>
           </div>
-          {/* <div className={styles.categoriesSelect}>
-            <p>Օդակարգավորում</p>
-            <div className={styles.arrowDown}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="14"
-                height="8"
-                viewBox="0 0 14 8"
-                fill="none"
-              >
-                <path
-                  d="M13.0002 1L7.00024 7L1.00024 1"
-                  stroke="#3E4095"
-                  stroke-width="2"
-                  stroke-miterlimit="10"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </div>
-          </div> */}
           <div className={styles.slider}>
             <Carousel
               className={styles.carousel}
@@ -205,61 +193,77 @@ const HomePage = () => {
         <div
           id={styles.one}
           className={styles.circle}
-          ref={circleRef}
-          onClick={() => setImagePopupActive((prev) => !prev)}
+          ref={circleRef1}
+          onClick={() => handleCircleClick(circleRef1)}
+          data-name="circle"
+          tabIndex={0}
         >
           1
         </div>
         <div
           id={styles.two}
           className={styles.circle}
-          onClick={() => setImagePopupActive((prev) => !prev)}
+          ref={circleRef2}
+          onClick={() => handleCircleClick(circleRef2)}
+          data-name="circle"
+          tabIndex={0}
         >
           2
         </div>
         <div
           id={styles.three}
           className={styles.circle}
-          onClick={() => setImagePopupActive((prev) => !prev)}
+          ref={circleRef3}
+          onClick={() => handleCircleClick(circleRef3)}
+          data-name="circle"
+          tabIndex={0}
         >
           3
         </div>
         <div
           id={styles.four}
           className={styles.circle}
-          onClick={() => setImagePopupActive((prev) => !prev)}
+          ref={circleRef4}
+          onClick={() => handleCircleClick(circleRef4)}
+          data-name="circle"
+          tabIndex={0}
         >
           4
         </div>
-        {isImagePopupActive && (
-          <div
-            className={styles.imagePopup}
-            style={{ top: circlePopupPos.curTop, left: circlePopupPos.curLeft }}
-          >
-            <h4>Ապրանքի անվանում</h4>
-            <p>
-              Մոդելների լայն տեսականին ներառում է հինգ մոդել 2,6-ից մինչև 7 կՎտ
-              հզորությամբ մինչև 20-ից մինչև 70 ք.մ.
-            </p>
-            <a href="#">
-              <span>Կարդալ ավելին</span>
-              <span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="14"
-                  viewBox="0 0 24 14"
-                  fill="none"
-                >
-                  <path
-                    d="M0 7.00002C0 7.26523 0.105357 7.51959 0.292893 7.70712C0.48043 7.89466 0.734784 8.00002 1 8.00002H20.586L16.294 12.292C16.1118 12.4806 16.011 12.7332 16.0133 12.9954C16.0156 13.2576 16.1208 13.5084 16.3062 13.6938C16.4916 13.8792 16.7424 13.9844 17.0046 13.9867C17.2668 13.989 17.5194 13.8882 17.708 13.706L23.708 7.70602C23.8005 7.61402 23.874 7.50464 23.9241 7.38417C23.9742 7.26369 24 7.1345 24 7.00402V7.00002C24 6.87002 23.974 6.74002 23.922 6.61802C23.8722 6.49678 23.7987 6.38665 23.706 6.29402L17.706 0.294017C17.5174 0.111859 17.2648 0.011065 17.0026 0.0133435C16.7404 0.0156219 16.4896 0.120791 16.3042 0.306199C16.1188 0.491607 16.0136 0.74242 16.0113 1.00462C16.009 1.26681 16.1098 1.51942 16.292 1.70802L20.586 6.00002H1C0.734784 6.00002 0.48043 6.10537 0.292893 6.29291C0.105357 6.48045 0 6.7348 0 7.00002Z"
-                    fill="#3E4095"
-                  />
-                </svg>
-              </span>
-            </a>
-          </div>
-        )}
+        <div
+          className={styles.imagePopup}
+          ref={popupRef}
+          style={{
+            top: circlePopupPos.currentTop,
+            left: circlePopupPos.currentLeft,
+            display: isImagePopupActive ? "flex" : "none",
+          }}
+          onBlur={popupClose}
+          tabIndex={0}
+        >
+          <h4>Ապրանքի անվանում</h4>
+          <p>
+            Մոդելների լայն տեսականին ներառում է հինգ մոդել 2,6-ից մինչև 7 կՎտ
+            հզորությամբ մինչև 20-ից մինչև 70 ք.մ.
+          </p>
+          <a href="#">
+            <span>Կարդալ ավելին</span>
+            <span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="14"
+                viewBox="0 0 24 14"
+                fill="none"
+              >
+                <path
+                  d="M0 7.00002C0 7.26523 0.105357 7.51959 0.292893 7.70712C0.48043 7.89466 0.734784 8.00002 1 8.00002H20.586L16.294 12.292C16.1118 12.4806 16.011 12.7332 16.0133 12.9954C16.0156 13.2576 16.1208 13.5084 16.3062 13.6938C16.4916 13.8792 16.7424 13.9844 17.0046 13.9867C17.2668 13.989 17.5194 13.8882 17.708 13.706L23.708 7.70602C23.8005 7.61402 23.874 7.50464 23.9241 7.38417C23.9742 7.26369 24 7.1345 24 7.00402V7.00002C24 6.87002 23.974 6.74002 23.922 6.61802C23.8722 6.49678 23.7987 6.38665 23.706 6.29402L17.706 0.294017C17.5174 0.111859 17.2648 0.011065 17.0026 0.0133435C16.7404 0.0156219 16.4896 0.120791 16.3042 0.306199C16.1188 0.491607 16.0136 0.74242 16.0113 1.00462C16.009 1.26681 16.1098 1.51942 16.292 1.70802L20.586 6.00002H1C0.734784 6.00002 0.48043 6.10537 0.292893 6.29291C0.105357 6.48045 0 6.7348 0 7.00002Z"
+                  fill="#3E4095"
+                />
+              </svg>
+            </span>
+          </a>
+        </div>
       </div>
       <div className={styles.newCollection}>
         <h3>Գործող առաջարկներ</h3>

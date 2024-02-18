@@ -3,8 +3,6 @@
   src:
     local("Montserrat Arm"),
     url(./fonts/Montserratarm-Regular.otf) format("woff");
-  /* other formats include: 'woff2', 'truetype, 'opentype',
-                            'embedded-opentype', and 'svg' */
 
   font-family: "Montserrat Arm";
   src:
@@ -20,6 +18,13 @@
 * {
   box-sizing: border-box;
   font-family: "Montserrat Arm";
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 body {

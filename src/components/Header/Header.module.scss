@@ -13,7 +13,7 @@ header {
     align-items: center;
     justify-content: space-between;
 
-    @media (max-width: 1133px) {
+    @media (max-width: 1189px) {
       padding: 10px 30px;
     }
 
@@ -35,7 +35,7 @@ header {
           font-size: 18px;
           color: #50525f;
 
-          @media (max-width: 1411px) {
+          @media (max-width: 1441px) {
             font-size: 14px;
           }
         }
@@ -45,7 +45,7 @@ header {
         display: flex;
         align-items: center;
 
-        @media (max-width: 1032px) {
+        @media (max-width: 1192px) {
           display: none;
         }
 
@@ -54,7 +54,7 @@ header {
           font-weight: 600;
           color: #50525f;
 
-          @media (max-width: 1411px) {
+          @media (max-width: 1441px) {
             font-size: 14px;
           }
         }
@@ -72,8 +72,9 @@ header {
             background: #fbfbff;
             width: 36px;
             height: 36px;
+            border: 1px solid #eeeeff;
             border-radius: 5px;
-            box-shadow: 0px 5px 10px #e1e1f0;
+            box-shadow: 0px 5px 10px #50525f39;
             margin-right: 20px;
             display: flex;
             align-items: center;
@@ -110,7 +111,7 @@ header {
             color: #50525f;
             transition: all 0.1s ease-in;
 
-            @media (max-width: 1411px) {
+            @media (max-width: 1441px) {
               font-size: 14px;
             }
 
@@ -197,11 +198,11 @@ header {
             transition: all 0.1s ease-in;
             cursor: pointer;
 
-            span{
+            span {
               padding-right: 10px;
             }
 
-            i{
+            i {
               font-size: 12px;
             }
 
@@ -222,7 +223,7 @@ header {
                 color: #fff;
               }
 
-              @media (max-width: 1411px) {
+              @media (max-width: 1441px) {
                 font-size: 14px;
               }
             }
@@ -374,7 +375,6 @@ header {
             color: #50525f;
             transition: all 0.1s ease-in;
             cursor: pointer;
-            
 
             &:hover {
               background: #f0f0ff;
